@@ -1,0 +1,24 @@
+body
+{
+	background-color:#F2F2F2;
+	font-family:helvetica;
+}
+#tombolScrollTop
+{
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: red;
+	color: white;
+	cursor: pointer;
+	padding: 7.5px;
+	border-radius: 4px;
+}
+#tombolScrollTop:hover {
+  background-color: rgb(241, 196, 15);
+}

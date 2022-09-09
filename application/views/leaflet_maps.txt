@@ -1,0 +1,14 @@
+<div id="map" class="card" style="width:100%;height:500px;">
+
+</div>  
+<script type="text/javascript">
+  var mapOPtions = {
+    center: [-6.148337,106.527447],
+    zoom: 13
+  }
+  var map = new L.map('map', mapOPtions);
+  var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+  map.addLayer(layer);
+  var marker = L.marker([-6.148337,106.527447]).addTo(map);
+  marker.bindPopup('<b>Budidaya Lele Sangkuriang</b><br><a href="https://goo.gl/maps/2XeGh5TJYQ1m4po6A">Kp.Putat,Rt.002/002,Desa.Sindang Sari,Kec.Pasar Kemis,Kab.Tangerang,Banten,15560.</a>')
+</script>

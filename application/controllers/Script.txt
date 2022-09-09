@@ -1,0 +1,49 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Cetak extends CI_Controller {
+
+  function __construct() {
+    parent::__construct();
+    $this->load->library('pdf');
+    $this->load->model('m_list','peserta');
+  }
+  public function index()
+  {
+    $pdf = new FPDF('l','mm','A5');
+    // membuat halaman baru
+    $pdf->AddPage();
+        // setting jenis font yang akan digunakan
+    $pdf->SetFont('Times','B',16);
+        // Insert a logo in the top-left corner at 300 dpi
+    $pdf->Image('./assets/img/logo sangkuriang.png',10,10,-400);
+        // mencetak string 
+    $pdf->Cell(190,7,'FORUM BUDIDAYA LELE SINDANG SARI',0,1,'C');
+    $pdf->SetFont('Times','',10);
+    $pdf->Cell(190,7,'Jl. Kiyai Kassa, Kp. Putat, Rt. 002/002, Desa. Sindang Sari, Kec. Pasar Kemis, Kab. Tangerang',0,1,'C');
+    // Garis Header
+    $pdf->Line(10,25,200,25);
+        // Memberikan space kebawah agar tidak terlalu rapat
+    $pdf->Cell(10,7,'',0,1);
+    $pdf->SetFont('Times','B',14);
+    $pdf->Cell(190,7,'DAFTAR PESERTA',0,1,'C');
+    $pdf->Cell(10,7,'',0,1);
+    $pdf->SetFont('Times','B',10);
+    $pdf->Cell(27,6,'NAMA',1,0);
+    $pdf->Cell(27,6,'ALAMAT',1,0);
+    $pdf->Cell(27,6,'NO HP',1,0);
+    $pdf->Cell(27,6,'PENDIDIKAN',1,0);
+    $pdf->Cell(27,6,'PEKERJAAN',1,0);
+    $pdf->SetFont('Times','',10);
+    $peserta = $this->db->get('peserta')->result();
+    foreach ($peserta as $row){
+      $pdf->Cell(10,6,'',0,1);
+      $pdf->Cell(27,6,$row->nama,1,0);
+      $pdf->Cell(27,6,$row->alamat,1,0);
+      $pdf->Cell(27,6,$row->nohp,1,0);
+      $pdf->Cell(27,6,$row->pendidikan,1,0);
+      $pdf->Cell(27,6,$row->pekerjaan,1,0);
+    }
+    $pdf->Output();
+  }
+}

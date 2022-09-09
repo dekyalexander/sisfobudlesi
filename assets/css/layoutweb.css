@@ -1,0 +1,119 @@
+html, body {
+  height: 100%;
+  width:100%;
+}
+/* halaman utama */
+.carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  .post
+  {
+    margin-bottom:50px;
+    margin-top:50px;
+    text-align: center;
+  } 
+  #notifications {
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    z-index: 9999;
+    bottom: 0px;
+    margin-bottom: 22px;
+    margin-right: 15px;
+    min-width: 300px; 
+    max-width: 800px;  
+}
+/* halaman gambar */
+#demo {
+  height:100%;
+  position:relative;
+  overflow:hidden;
+}
+
+
+.green{
+  background-color:#6fb936;
+}
+.thumb{
+  margin-bottom: 30px;
+}
+
+.page-top{
+  margin-top:85px;
+}
+
+
+img.zoom {
+  width: 100%;
+  height: 200px;
+  border-radius:5px;
+  object-fit:cover;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+}
+
+
+.transition {
+  -webkit-transform: scale(1.2); 
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+/* sidebar */
+.main-wrapper {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    flex-grow:1;
+}
+.main {
+    height:100%;
+    margin:0 auto;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+}
+.sidebar {
+    -webkit-flex-grow:1;
+    flex-grow:1;
+    width:70%;
+}
+/* footer */
+.wrapper{
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 100vh;
+    height:100%;
+}
+.footer-wrapper{		
+  padding:20px 10px;
+  background:#363c44;
+  margin-top:auto;
+  width:100%;
+  color: #ecf0f1;
+  
+}
+/* responsive */
+@media (max-width: 768px){
+.main {
+     height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+}

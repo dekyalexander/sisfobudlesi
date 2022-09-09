@@ -1,0 +1,57 @@
+<?php
+ 
+// Importing DBConfig.php file.
+include 'DB_Config.php';
+ 
+// Connecting to MySQL Database.
+ $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
+ 
+ // Getting the received JSON into $json variable.
+ $json = file_get_contents('php://input');
+ 
+ // decoding the received JSON and store into $obj variable.
+ $obj = json_decode($json,true);
+ 
+ // Populate Student ID from JSON $obj array and store into $S_Name.
+ $id = $obj['id'];
+ 
+ // Populate Student name from JSON $obj array and store into $S_Name.
+ $nama = $obj['nama'];
+ 
+ // Populate Student Class from JSON $obj array and store into $S_Class.
+ $alamat = $obj['alamat'];
+ 
+ // Populate Student Phone Number from JSON $obj array and store into $S_Phone_Number.
+ $nohp = $obj['nohp'];
+ 
+ // Populate Email from JSON $obj array and store into $S_Email.
+ $pendidikan = $obj['pendidikan'];
+
+ // Populate Email from JSON $obj array and store into $S_Email.
+ $pekerjaan = $obj['pekerjaan'];
+
+ // Populate Email from JSON $obj array and store into $S_Email.
+ $photo = $obj['photo'];
+ 
+ // Creating SQL query and insert the record into MySQL database table.
+ $Sql_Query = "UPDATE peserta SET nama= '$nama', alamat = '$alamat', nohp = '$nohp', pendidikan = '$pendidikan', pekerjaan = '$pekerjaan', photo = '$photo' WHERE id = '$id'";
+ 
+ if(mysqli_query($con,$Sql_Query)){
+ 
+ // If the record inserted successfully then show the message.
+$MSG = 'Berhasil Mengubah Data' ;
+ 
+// Converting the message into JSON format.
+$json = json_encode($MSG);
+ 
+// Echo the message.
+ echo $json ;
+ 
+ }
+ else{
+ 
+ echo 'Gagal Mengubah Data';
+ 
+ }
+ mysqli_close($con);
+?>
